@@ -36,7 +36,7 @@
         <header-file src="src/ios/CordovaSamanSEPPlugin.h"/>
         <source-file src="src/ios/CordovaSamanSEPPlugin.m"/>
         <framework src="src/ios/SepPay.framework" embed="true" custom="true"/>
-        <source-file src="src/ios/SepPay.framework" framework="true"/>
+        <source-file src="src/ios/SepPay.framework" target-dir="" framework="true"/>
     </platform>
     <platform name="browser">
         <config-file target="config.xml" parent="/*">
