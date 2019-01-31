@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-saman-sep" version="1.0.0">
-    <name>Cordova Saman SEP Plugin</name>
+    <name>CordovaSamanSEPPlugin</name>
     <description>افزونه پرداخت الکترونیک سامان برای استفاده در آپاچی کوردوا</description>
     <license>MIT</license>
     <keywords></keywords>
@@ -19,7 +19,6 @@
                 <param name="onload" value="true"/>
             </feature>
         </config-file>
-
         <source-file src="src/android/net/ariaa/CordovaSamanSEPPlugin.java" target-dir="src/net/ariaa/"/>
         <resource-file src="src/android/sdk724/ir/sep/sdk724/3.2.0/sdk724-3.2.0.aar" target="libs/sdk724-3.2.0.aar"/>
     </platform>
@@ -37,7 +36,7 @@
         <header-file src="src/ios/CordovaSamanSEPPlugin.h"/>
         <source-file src="src/ios/CordovaSamanSEPPlugin.m"/>
         <framework src="src/ios/SepPay.framework" embed="true" custom="true"/>
-        <!--<source-file src="src/ios/SepPay.framework" target-dir="lib" framework="true"/>-->
+        <source-file src="src/ios/SepPay.framework" target-dir="lib" framework="true"/>
     </platform>
     <platform name="browser">
         <config-file target="config.xml" parent="/*">
