@@ -8,11 +8,13 @@
 }
 
 - (void)echo:(CDVInvokedUrlCommand *)command {
+  NSLog(@"echo Your message here");
   NSString* phrase = [command.arguments objectAtIndex:0];
   NSLog(@"%@", phrase);
 }
 
 - (void)getDate:(CDVInvokedUrlCommand *)command {
+  NSLog(@"getDate Your message here");
   NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
   NSLocale *enUSPOSIXLocale = [NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"];
   [dateFormatter setLocale:enUSPOSIXLocale];
