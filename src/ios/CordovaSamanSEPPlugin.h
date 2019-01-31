@@ -1,6 +1,6 @@
 #import <Cordova/CDVPlugin.h>
 
-@interface MyCordovaPlugin : CDVPlugin {
+@interface CordovaSamanSEPPlugin : CDVPlugin {
 }
 
 // The hooks for our plugin commands
