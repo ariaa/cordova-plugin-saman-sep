@@ -1,0 +1,6 @@
+framework module SepPay {
+  umbrella header "SepPay.h"
+
+  export *
+  module * { export * }
+}
