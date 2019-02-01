@@ -16,12 +16,12 @@
   [[SepPayCore sharedInstance] initWithMerchantID: merchantId];
   // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“PAYMENT-PARAMS" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
   // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“40|123456789|987654321" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
-  [[SepPayCore sharedInstance] startPaymentWithMSISDN:cellphone additionalDa- ta:additionalData paymentParams:concatenatedPaymentParams completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
+  [[SepPayCore sharedInstance] startPaymentWithMSISDN:cellphone additionalData:additionalData paymentParams:concatenatedPaymentParams completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
     if (success) {
-      پرداخت موفق //
+      // پرداخت موفق
       NSLog(@"successful payment");
     } else {
-      پرداخت ناموفق//
+      // پرداخت ناموفق
       NSLog(@"payment failure");
     }
   ]};
