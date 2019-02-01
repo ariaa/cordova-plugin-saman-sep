@@ -1,10 +1,30 @@
 #import "CordovaSamanSEPPlugin.h"
-
+#import <SepPay/SepPay.h>
 #import <Cordova/CDVAvailability.h>
 
 @implementation CordovaSamanSEPPlugin
 
 - (void)pluginInitialize {
+}
+
+- (void)test:(CDVInvokedUrlCommand *)command {
+  NSLog(@"test function called");
+  NSString* merchantId = [command.arguments objectAtIndex:0];
+  NSString* cellphone = [command.arguments objectAtIndex:1];
+  NSString* concatenatedPaymentParams = [command.arguments objectAtIndex:2];
+  NSString* additionalData = [command.arguments objectAtIndex:3];
+  [[SepPayCore sharedInstance] initWithMerchantID: merchantId];
+  // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“PAYMENT-PARAMS" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
+  // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“40|123456789|987654321" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
+  [[SepPayCore sharedInstance] startPaymentWithMSISDN:cellphone additionalDa- ta:additionalData paymentParams:concatenatedPaymentParams completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
+    if (success) {
+      پرداخت موفق //
+      NSLog(@"successful payment");
+    } else {
+      پرداخت ناموفق//
+      NSLog(@"payment failure");
+    }
+  ]};
 }
 
 - (void)echo:(CDVInvokedUrlCommand *)command {
