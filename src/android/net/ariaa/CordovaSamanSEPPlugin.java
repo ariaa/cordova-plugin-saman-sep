@@ -26,7 +26,30 @@ public class CordovaSamanSEPPlugin extends CordovaPlugin {
   }
 
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
-    if(action.equals("echo")) {
+    if(action.equals("test")) {
+      Log.d(TAG, "test function called");
+      String merchantId = args.getString(0);
+      String cellphone = args.getString(1);
+      String concatenatedPaymentParams = args.getString(2);
+      String additionalData = args.getString(3);
+
+      Sdk724.instance().activity(this) .request(new Sdk724.Request()
+        .msisdn(cellphone) .mPin(merchantId) .additionalData(additionalData) .paymentParams(concatenatedPaymentParams) .nightMode(true))
+        .listener(new Sdk724.OnResultListener() {
+        @Override
+        public void onAuditFailed(String error) {
+          Log.d(TAG, "the device security cannot be confirmed. * Use alternative methods for payment.");
+        }
+        @Override
+        public void onPaymentFailed(Sdk724.Response response) {
+          Log.d(TAG, "payment failure");
+        }
+        @Override
+        public void onPaymentSucceed(Sdk724.Response response) {
+          Log.d(TAG, "successful payment");
+        }
+      }).start();
+    } else if(action.equals("echo")) {
       String phrase = args.getString(0);
       // Echo back the first argument
       Log.d(TAG, phrase);
