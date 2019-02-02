@@ -14,8 +14,6 @@
   NSString* concatenatedPaymentParams = [command.arguments objectAtIndex:2];
   NSString* additionalData = [command.arguments objectAtIndex:3];
   [[SepPayCore sharedInstance] initWithMerchantID: merchantId];
-  // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“PAYMENT-PARAMS" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
-  // [[SepPayCore sharedInstance] startPaymentWithMSISDN:@"MSISDN" additionalDa- ta:@“ADDITIONAL-DATA" paymentParams:@“40|123456789|987654321" completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
   [[SepPayCore sharedInstance] startPaymentWithMSISDN:cellphone additionalData:additionalData paymentParams:concatenatedPaymentParams completion:^(BOOL success, NSString *code, NSString *msg, NSString *urn, NSString *mrn) {
     if (success) {
       // پرداخت موفق
@@ -24,7 +22,7 @@
       // پرداخت ناموفق
       NSLog(@"payment failure");
     }
-  ]};
+  }];
 }
 
 - (void)echo:(CDVInvokedUrlCommand *)command {
